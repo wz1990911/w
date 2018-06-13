@@ -1,0 +1,26 @@
+#import random
+a = 0
+for i in range(30):
+	for j in range(2):
+		km = 34 #random.randint(1,100)
+		if km <= 6:
+			price = 3
+		elif km > 6 and km <= 12:
+			price = 4
+		elif km > 12 and km <= 22:
+			price = 5
+		elif km > 22 and km <= 32:
+			price = 6
+		elif km - 32 == 0:
+			price = 6 
+		elif km > 32:
+			price = 6 +(km-32)/20+1
+		elif price >= 100 and price < 150:
+			price = price*0.8
+		elif price >= 150 and price < 400:
+			price = price*0.5
+		elif price < 400:
+			price = price*1
+	a = a+price
+print("总钱%.02f"%a)
+			

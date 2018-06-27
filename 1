@@ -1,0 +1,220 @@
+list1 = []
+list2 = []
+list3 = []
+import random
+import time
+def cuang():
+    zi = {}
+    print("欢迎来到荒岛体验系统".center(50,"*"))
+    while True:
+        print("账号等于11位并且都是纯数字才可以哦")
+        acc = input("请注册账号")
+        if len(acc) == 11 and acc.startswith("1"):
+            break
+        else:
+            print("输入有误")
+            continue
+    while True:
+        print("密码必须6位以上哦")
+        pwd = input("请输入密码")
+        if len(pwd)> 6:
+            break
+        else:
+            print("输入有误")
+            continue
+    if len(acc) == 11 and acc.startswith("1") and len(pwd)> 6:
+        print("注册成功")
+        zi["acc"] = acc
+        zi["pwd"] = pwd
+        list1.append(zi)
+        deng()
+def deng():
+    print("正在登录".center(50,"*"))
+    print("正在进入.....")
+    print("正在进入....")
+    print("正在进入...")
+    print("正在进入..")
+    print("正在进入.")
+    print("登录成功")
+    print("时间:3600年6月6日")
+    print("地点:太平洋一个货轮上")
+    print("事件:碰....糟糕触礁船翻了...救命..救...")
+    print("...")
+    print(".")
+    time.sleep(1)
+    print("斯...头好痛")
+    xuan()
+def print_d():
+        print("1------开始探险")
+        print("2------查看属性")
+        print("3------查看物品")
+        print("4------换购物品")
+        print("5------补充能量")
+        print("6------丢弃物品")
+        print("0------退出系统")
+def xuan():
+    print("欢迎主人来到荒岛体验系统".center(50,"*"))
+    tian()
+    while True:
+        print_d()
+        a = input("请输入您的选择")
+        if a.isdigit():
+            a = int(a)
+        else:
+            print("登录失败")
+        if a == 1:
+            print_1()
+        elif a == 2:
+            print_2()
+        elif a == 3:
+            print_3()
+        elif a == 4:
+            print_4()
+        elif a == 5:
+            print_5()
+        elif a == 6:
+            print_6()
+        elif a == 0:
+            break
+def tian():
+    zi={}
+    zi["jian"] = 100
+    zi["shui"] = 100
+    zi["ti"] = 100
+    list3.append(zi)
+def print_1():
+    print("1---处级探险(可以获得水源,野果.木材)")
+    print("2---高级探险(可以碰到猎物获得食物,草药,矿物)")
+    print("0---取消探险")
+    b = int(input("请输入选择"))
+    zi={}
+    if b == 1:
+        shui = 0
+        ye = 0
+        cai = 0
+        while True:
+            a = random.randint(1,5)#1---水源 2----野果 3---木材 其他---什么也没有
+            a = int(a)
+            if a == 1:
+                print_jian()
+                shui = random.randint(1,10)
+                print("恭喜你获得了%d瓶水可补充水分"%shui)
+                shui += shui
+                zi["shui"] = shui
+                list2.append(zi)
+                print("1------继续探险")
+                print("2------退出探险")
+                ji = int(input("请选择"))
+                if ji == 2:
+                    print_he()
+                    break
+            elif a == 2:
+                print_jian()
+                ye = random.randint(1,10)
+                print("恭喜你获得了%d个野果可补充少量体力"%ye)
+                ye += ye
+                zi["ye"] = ye
+                list2.append(zi)
+                print("1------继续探险")
+                print("2------退出探险")
+                ji = int(input("请选择"))
+                if ji == 2:
+                    break
+            elif a == 3:
+                print_jian()
+                cai = random.randint(1,10)
+                print("恭喜你获得了%d根木材可创造东西"%cai)
+                cai+=cai
+                zi["cai"] = cai
+                list2.append(zi)
+                print("1------继续探险")
+                print("2------退出探险")
+                ji = int(input("请选择"))
+                if ji == 2:
+                    break
+            else:
+                print("什么也没找到")
+                print("1------继续探险")
+                print("2------退出探险")
+                ji = int(input("请选择"))
+                if ji == 2:
+                    break
+                
+    if b == 2:
+        rou = 0
+        yao = 0
+        kuang = 0
+        while True:
+            a = random.randint(1,6)#1---碰到野兽2------找到草药3---找到矿物
+            a = int(a)
+            if a == 1:
+                print_jian()
+                print("碰到野兽")
+                print("1---放弃战斗")
+                print("2---继续战斗")
+                xuan = int(input("请选择"))
+                if xuan == 1:
+                    break
+                elif xuan == 2:
+                    b = random.randint(1,2)#判断成功或失败
+                    if b == 1:
+                        rou = random.randint(1,5)
+                        print("战斗成功获得%d块肉可以补充大量体力"%rou)
+                        rou+=rou
+                        zi["rou"] = rou
+                        list2.append(zi)
+                        print("1------继续探险")
+                        print("2------退出探险")
+                        ji = int(input("请选择"))
+                        if ji == 2:
+                            print("猎物逃跑了")
+                            break 
+            elif a == 2:
+                print_jian()
+                yao = random.randint(1,10)
+                print("恭喜获得%d棵草药可以治疗"%yao)
+                yao+=yao
+                zi["yao"] = yao
+                list2.append(zi)
+                print("1------继续探险")
+                print("2------退出探险")
+                ji = int(input("请选择"))
+                if ji == 2:
+                    break
+            elif a == 3:
+                print_jian()
+                kuang = random.randint(1,10)
+                print("恭喜获得%d块矿物可创造东西"%kuang)
+                kuang+=kuang
+                zi["kuang"] = kuang
+                list2.append(zi)
+                print("1------继续探险")
+                print("2------退出探险")
+                ji = int(input("请选择"))
+                if ji == 2:
+                    break
+def print_2():
+    print("健康\t体力\t水分")
+    for position,i in enumerate(list3):
+        print(i["jian"],"\t",i["ti"],"\t",i["shui"])   
+def print_jian():
+    for position,i in enumerate(list3):
+        i["jian"] = i["jian"]-3
+        i["ti"] = i["ti"]-3
+        i["shui"] = i["shui"]-3
+        if i["jian"] < 20:
+            print("j健康快到极限了")
+            print("请尽快医治")
+        elif i["ti"] < 10:
+            print("体力快到极限了")
+            print("请尽快补充体力")
+        elif i["shui"] < 15:
+            print("水分快到极限了")
+            print("请尽快补充水分")
+def print_3():
+    print("水\t野果\t木材\t肉\t草药\t矿物")
+    sum = 0
+    for k in list1.keys():
+        sum += shui(k)
+        print(sum)
+cuang()

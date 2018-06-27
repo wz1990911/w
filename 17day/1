@@ -1,0 +1,6 @@
+def dingyi(a,b,c = 100):
+    return
+    print("%d+%d+%d"%(a,b,c,sum(a,b,c)))
+a = int(input("请输入数字"))
+b = int(input("请输入数字"))
+dingyi(a,b)

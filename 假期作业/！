@@ -1,0 +1,3 @@
+list1 = ["人身苦短,我用python,life isshort"]
+	list1.count("p")
+	print(p)
